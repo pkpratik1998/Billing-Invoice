@@ -140,7 +140,7 @@ if(!empty($_GET['update_id']) && $_GET['update_id']) {
 							  <input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
 							  <input type="hidden" value="<?php echo $invoiceValues['order_id']; ?>" class="form-control" name="invoiceId" id="invoiceId">
 								<input data-loading-text="Updating Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm noPrint">
-								<button class="btn btn-success noPrint" id="invoice-print" onclick="window.print()"><i class="fa fa-print"></i> Print Invoice</button>
+								<button class="btn btn-success submit_btn invoice-save-btm noPrint" id="invoice-print" onclick="window.print()"><i class="fa fa-print"></i> Print & Save</button>
 						  </div>
 						  
 						</div>

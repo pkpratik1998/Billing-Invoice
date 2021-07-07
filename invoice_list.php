@@ -10,7 +10,7 @@ $invoice->checkLoggedIn();
 <link href="css/style.css" rel="stylesheet">
 <?php include('container.php');?>
 	<div class="container">		
-	  <h2 class="title">PHP Invoice System</h2>
+	  <h2 class="title">Invoice List</h2>
 	  <?php include('menu.php');?>			  
       <table id="data-table" class="table table-condensed table-striped">
         <thead>
@@ -19,7 +19,6 @@ $invoice->checkLoggedIn();
             <th>Create Date</th>
             <th>Customer Name</th>
             <th>Invoice Total</th>
-            <th>Print</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -35,7 +34,6 @@ $invoice->checkLoggedIn();
                 <td>'.$invoiceDate.'</td>
                 <td>'.$invoiceDetails["order_receiver_name"].'</td>
                 <td>'.$invoiceDetails["order_total_before_tax"].'</td>
-                <td><a href="print_invoice.php?invoice_id='.$invoiceDetails["order_id"].'" title="Print Invoice"><span class="glyphicon glyphicon-print"></span></a></td>
                 <td><a href="edit_invoice.php?update_id='.$invoiceDetails["order_id"].'"  title="Edit Invoice"><span class="glyphicon glyphicon-edit"></span></a></td>
                 <td><a href="#" id="'.$invoiceDetails["order_id"].'" class="deleteInvoice"  title="Delete Invoice"><span class="glyphicon glyphicon-remove"></span></a></td>
               </tr>

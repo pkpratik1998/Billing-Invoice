@@ -12,8 +12,8 @@ if(!empty($_POST['companyName']) && $_POST['companyName']) {
      $password   = "";
      $database  = "billing";
 	 $conn = new mysqli($host, $user, $password, $database);
-	 $sql = "select order_id from invoice_order order by id desc limit 1";
-$result = $conn->query($sql);
+	 $sql = "select order_id from invoice_order order by order_id desc limit 1";
+$result = $conn->query($sql) or die($conn->error);
 while ($row = $result->fetch_assoc()) {
 	$last_id= $row['order_id'];
 	
@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) {
                        
 					   <b><p id="demo" style="color: #dc0f0f;"></p></b>
 					   
-					   <b> <p style="color: #dc0f0f;"> Invoice No. : <?php echo $last_id ?></p><b>
+					   <b> <p style="color: #dc0f0f;"> Invoice No. : <?php echo $last_id + 1 ?></p><b>
 
 				   </div>
 			</div>
@@ -169,7 +169,7 @@ while ($row = $result->fetch_assoc()) {
 					<div class="form-group">
 						<input type="hidden" value="<?php echo $_SESSION['userid']; ?>" class="form-control" name="userId">
 						<input data-loading-text="Saving Invoice..." type="submit" name="invoice_btn" value="Save Invoice" class="btn btn-success submit_btn invoice-save-btm noPrint">						
-						<button class="btn btn-success noPrint" id="invoice-print" onclick="window.print()"><i class="fa fa-print"></i> Print Invoice</button>
+						<button class="btn btn-success submit_btn invoice-save-btm noPrint" id="invoice-print" onclick="window.print()"><i class="fa fa-print"></i> Print & Save</button>
 					</div>
 					
 				</div>
